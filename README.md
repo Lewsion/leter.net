@@ -10,7 +10,7 @@ This repository contains a static landing site for `leter.net`, currently invite
 - Leter does not currently operate mailbox-level storage directly.
 - No claim is made that self-hosted end-to-end encryption is currently deployed.
 - Roadmap targets a sovereign, self-hosted encrypted infrastructure.
-- Infrastructure is operated by Lewsion.
+- Infrastructure is operated by [Lewsion](https://lewsion.com).
 
 ## Stack
 
@@ -131,4 +131,4 @@ Current legal and policy routes:
 
 Infrastructure credit line:
 
-`Server deployment and operational infrastructure provided by Lewsion.`
+`Server deployment and operational infrastructure provided by [Lewsion](https://lewsion.com).`
