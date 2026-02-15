@@ -6,7 +6,7 @@ Project instructions for Gemini CLI, Google AI coding tools, and any AI agent co
 
 Project name: `leter.net`  
 Type: private, invite-only landing site for an encryption-first email initiative  
-Owner/operator: Lewsion  
+Owner/operator: [Lewsion](https://lewsion.com)  
 Status: early-stage, internal-first, not a public mailbox platform
 
 This repository is the public-facing website foundation, not the full mail product for now.
@@ -18,9 +18,9 @@ Always preserve these facts in code and copy:
 1. Leter currently uses **Forward Email** as the active provider for routing/provisioning.
 2. Leter currently does **not** operate mailbox storage directly.
 3. Leter must **not** claim currently deployed Leter-operated end-to-end encryption.
-4. Domain registration is managed via **SpaceShip**.
-5. DNS and mail-security DNS policy are managed via **Cloudflare DNS**.
-6. Infrastructure operations are provided by **Lewsion**.
+4. Domain registration is managed via [SpaceShip](https://www.spaceship.com).
+5. DNS and mail-security DNS policy are managed via [Cloudflare DNS](https://www.cloudflare.com).
+6. Infrastructure operations are provided by [Lewsion](https://lewsion.com).
 7. The roadmap may describe sovereign/self-hosted direction, but only as planned evolution.
 
 ## 3) Allowed vs Forbidden Messaging
@@ -182,7 +182,7 @@ Before final response, verify:
 
 1. No prohibited security claims were introduced.
 2. Provider wording remains correct.
-3. Lewsion-only infrastructure credit is preserved.
+3. [Lewsion](https://lewsion.com)-only infrastructure credit is preserved.
 4. Legal links still resolve (`/terms`, `/privacy`, `/abuse`, `/dmca`).
 5. Homepage structure remains coherent and minimal.
 6. No accidental stack drift (still Astro + Tailwind + static + Docker + nginx).

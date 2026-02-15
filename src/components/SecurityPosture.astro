@@ -2,10 +2,25 @@
   <div class="container-width py-16">
     <p class="eyebrow">Security posture</p>
     <h2 class="section-title mt-3">Current mail security controls</h2>
-    <div class="card mt-6 max-w-5xl">
+    <div class="card mt-6">
       <p class="text-muted">
-        Domain registration is managed on SpaceShip. DNS and mail-related security policy is managed
-        on Cloudflare DNS. Mail routing and mailbox service currently run through
+        Domain registration is managed on
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://www.spaceship.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          SpaceShip
+        </a>. DNS and mail-related security policy is managed on
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://www.cloudflare.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Cloudflare DNS
+        </a>. Mail routing and mailbox service currently run through
         <a
           class="text-text underline decoration-accent/60 underline-offset-2"
           href="https://forwardemail.net"
@@ -62,8 +77,22 @@
       </ul>
 
       <p class="mt-5 text-sm text-muted">
-        These controls strengthen mail authentication and transport security. They do not mean
-        mailbox-level end-to-end encryption is currently operated by Leter.
+        DMARC aggregate and forensic/failure reporting endpoints are operated on
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://lewsion.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Lewsion
+        </a>-managed infrastructure. Forensic feeds are routed to a proprietary internal analysis
+        system for detailed incident diagnostics.
+      </p>
+
+      <p class="mt-5 text-sm text-muted">
+        These controls are configured to support high-trust communication review by banks, legal
+        teams, and institutional recipients. They improve authentication and transport security, but
+        they do not mean mailbox-level end-to-end encryption is currently operated by Leter.
       </p>
     </div>
   </div>

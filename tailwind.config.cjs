@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "#4ade80",
-        surface: "#090b0f",
-        panel: "#11141a",
-        text: "#f3f5f7",
-        muted: "#9aa4b2"
+        accent: "#f5f5f5",
+        surface: "#050505",
+        panel: "#0b0b0b",
+        text: "#f5f5f5",
+        muted: "#a3a3a3"
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(74, 222, 128, 0.35), 0 10px 30px rgba(74, 222, 128, 0.16)"
+        glow: "0 0 0 1px rgba(255, 255, 255, 0.35), 0 12px 28px rgba(255, 255, 255, 0.14)"
       }
     }
   },

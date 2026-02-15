@@ -1,35 +1,70 @@
 <section id="current-state" class="section-border">
   <div class="container-width py-16">
     <p class="eyebrow">Current state</p>
-    <h2 class="section-title mt-3">Where the project stands today</h2>
+    <h2 class="section-title mt-3">Operational status</h2>
     <ul class="mt-6 grid gap-3 text-muted md:grid-cols-2">
       <li class="card">
-        Mail routing and mailbox provisioning currently use
+        Mail routing and mailbox provisioning currently run through
         <a
           class="text-text underline decoration-accent/60 underline-offset-2"
           href="https://forwardemail.net"
           target="_blank"
           rel="noreferrer"
-        >
-          Forward Email
+        >Forward Email
         </a>, a zero-knowledge provider.
       </li>
       <li class="card">
         Leter does not currently operate the mailbox storage layer directly.
       </li>
       <li class="card">
-        Access is invite-only. Requests are reviewed before invitations are issued.
+        Current users are primarily creator-controlled identities, operator-known users, and
+        members affiliated with
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://lewsion.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Lewsion
+        </a>.
       </li>
       <li class="card">
-        Infrastructure is operated by Lewsion. No public service is available yet.
+        Access is granted only by direct invitation. There is no public signup, open waitlist, or
+        self-service registration.
       </li>
       <li class="card">
-        Domain is registered on SpaceShip. DNS and security policy management is handled via
-        Cloudflare DNS.
+        This site is a public trust statement for recipients, institutions, and compliance teams
+        validating leter.net addresses.
       </li>
-      <li class="card md:col-span-2">
-        Leter domains and alias inventory are currently reserved and controlled; they are not in
-        public use.
+      <li class="card">
+        Domain is registered on
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://www.spaceship.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          SpaceShip
+        </a>. Registrant identity is not publicly listed and is currently protected via WHOIS
+        privacy.
+      </li>
+      <li class="card">
+        DNS and security policy management is handled through
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://www.cloudflare.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Cloudflare DNS
+        </a>.
+      </li>
+      <li class="md:col-span-2 rounded-xl border border-white/25 bg-white/[0.06] p-5 text-sm text-text">
+        <p class="font-medium">Alias issuance policy</p>
+        <p class="mt-2 text-muted">
+          Alias inventory is controlled and issued selectively for known, high-trust communication
+          use cases. This is not an open public alias service.
+        </p>
       </li>
     </ul>
   </div>

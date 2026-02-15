@@ -1,26 +1,48 @@
-<section>
-  <header class="container-width py-6">
-    <div class="flex items-center justify-between">
-      <a href="/" class="text-sm font-semibold tracking-tight text-text">leter.net</a>
+<section class="relative overflow-hidden border-b border-white/10">
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-[500px] blur-[1px]"
+    style="background-image: radial-gradient(circle at 50% -18%, rgba(255,255,255,0.12), rgba(255,255,255,0.03) 34%, transparent 68%), linear-gradient(180deg, rgba(255,255,255,0.04), transparent 72%);"
+  ></div>
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 h-[380px] opacity-10"
+    style="background-image: linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 30px 30px; mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,0.55) 50%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,0.55) 50%, transparent 100%);"
+  ></div>
+
+  <header class="container-width relative py-6">
+    <div class="flex items-center justify-center rounded-xl border border-white/15 bg-black/45 px-4 py-3 backdrop-blur-sm md:justify-between">
+      <div class="flex items-center gap-2">
+        <a href="/" class="text-sm font-semibold tracking-tight text-text">leter.net</a>
+        <span class="text-xs text-muted">by</span>
+        <a
+          href="https://lewsion.com"
+          target="_blank"
+          rel="noreferrer"
+          class="text-xs font-medium text-text underline decoration-white/40 underline-offset-2 hover:decoration-white/70"
+        >
+          lewsion.com
+        </a>
+      </div>
+
       <nav class="hidden items-center gap-6 text-sm text-muted md:flex">
-        <a class="hover:text-text" href="#current-state">Current state</a>
-        <a class="hover:text-text" href="#security">Security</a>
-        <a class="hover:text-text" href="#initiative">Scope</a>
-        <a class="hover:text-text" href="#principles">Principles</a>
-        <a class="hover:text-text" href="#roadmap">Plan</a>
+        <a class="transition-colors hover:text-text" href="#current-state">Current state</a>
+        <a class="transition-colors hover:text-text" href="#security">Security</a>
+        <a class="transition-colors hover:text-text" href="#initiative">Scope</a>
+        <a class="transition-colors hover:text-text" href="#principles">Principles</a>
+        <a class="transition-colors hover:text-text" href="#roadmap">Direction</a>
       </nav>
     </div>
   </header>
 
-  <div class="container-width pb-20 pt-8 md:pb-24 md:pt-12">
-    <p class="eyebrow">Invite-only initiative</p>
+  <div class="container-width relative pb-20 pt-8 md:pb-24 md:pt-12">
+    <p class="eyebrow">Private, invite-only domain operation</p>
     <h1 class="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-text md:text-7xl">
-      Private communication.
+      Trusted email identity.
       <br class="hidden md:block" />
-      Rewritten.
+      Invite-only.
     </h1>
     <p class="mt-5 max-w-2xl text-base text-muted md:text-lg">
-      Encryption-first, invite-only initiative. Current mailbox provisioning is provided through
+      leter.net is operated as a strict invite-only domain for high-trust communication use cases.
+      Current mailbox provisioning is provided through
       <a
         class="text-text underline decoration-accent/60 underline-offset-2"
         href="https://forwardemail.net"
@@ -28,36 +50,36 @@
         rel="noreferrer"
       >
         Forward Email
-      </a>.
+      </a>. This is not a public signup product.
     </p>
 
     <div class="mt-9 flex flex-wrap items-center gap-3">
       <a
-        href="#early-access"
-        class="inline-flex rounded-lg border border-accent/60 bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition-shadow hover:shadow-glow"
+        href="#access-policy"
+        class="inline-flex rounded-lg border border-white/60 bg-white px-5 py-2.5 text-sm font-semibold text-black transition-shadow hover:shadow-glow"
       >
-        Request early access
+        Access policy
       </a>
       <a
-        href="#roadmap"
-        class="inline-flex rounded-lg border border-white/15 px-5 py-2.5 text-sm font-medium text-text hover:border-white/35"
+        href="#security"
+        class="inline-flex rounded-lg border border-white/20 bg-black/30 px-5 py-2.5 text-sm font-medium text-text hover:border-white/40"
       >
-        Planned evolution
+        Security controls
       </a>
     </div>
 
     <div class="mt-10 grid gap-3 md:grid-cols-3">
-      <div class="card">
+      <div class="card bg-black/55">
         <p class="font-mono text-xs text-muted">STATUS</p>
-        <p class="mt-2 text-sm text-text">Private, invite-only</p>
+        <p class="mt-2 text-sm text-text">Strictly invite-only</p>
       </div>
-      <div class="card">
-        <p class="font-mono text-xs text-muted">ROUTING</p>
-        <p class="mt-2 text-sm text-text">Forward Email provider stack</p>
+      <div class="card bg-black/55">
+        <p class="font-mono text-xs text-muted">CURRENT PROVIDER</p>
+        <p class="mt-2 text-sm text-text">Forward Email</p>
       </div>
-      <div class="card">
-        <p class="font-mono text-xs text-muted">INFRA</p>
-        <p class="mt-2 text-sm text-text">Operated by Lewsion</p>
+      <div class="card bg-black/55">
+        <p class="font-mono text-xs text-muted">PRIMARY GOAL</p>
+        <p class="mt-2 text-sm text-text">Domain legitimacy and reputation</p>
       </div>
     </div>
   </div>
