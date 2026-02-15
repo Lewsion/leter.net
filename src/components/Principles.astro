@@ -1,24 +1,42 @@
 ---
 const principles = [
-  "Privacy by design",
-  "Sovereignty",
-  "Decentralization",
-  "Reliability",
-  "Anti-surveillance posture",
-  "Mail-grade standards"
+  {
+    title: "Legitimacy before scale",
+    detail: "Domain trust and operational clarity are prioritized over growth."
+  },
+  {
+    title: "Accountable operations",
+    detail: "Ownership, abuse handling, and policy channels are explicit and auditable."
+  },
+  {
+    title: "Protocol discipline",
+    detail: "Mail controls follow standards-aligned authentication and transport practices."
+  },
+  {
+    title: "Privacy without overclaiming",
+    detail: "Security claims remain accurate to current provider and infrastructure reality."
+  },
+  {
+    title: "Enforcement posture",
+    detail: "Abuse reporting, escalation, and address controls are operated with low tolerance."
+  },
+  {
+    title: "Security-aware users",
+    detail: "Access is limited to users expected to handle sensitive communication responsibly."
+  }
 ];
 ---
 
 <section id="principles" class="section-border">
   <div class="container-width py-16">
     <p class="eyebrow">Principles</p>
-    <h2 class="section-title mt-3">Non-negotiable design constraints</h2>
+    <h2 class="section-title mt-3">Operating principles</h2>
     <ul class="mt-6 grid gap-3 md:grid-cols-2">
       {
-        principles.map((item, index) => (
+        principles.map((item) => (
           <li class="card text-muted">
-            <p class="font-mono text-xs text-muted">P0{index + 1}</p>
-            <p class="mt-2 text-text">{item}</p>
+            <p class="text-base font-medium text-text">{item.title}</p>
+            <p class="mt-2 text-sm text-muted">{item.detail}</p>
           </li>
         ))
       }
