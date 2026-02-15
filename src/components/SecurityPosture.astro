@@ -1,0 +1,70 @@
+<section id="security" class="section-border">
+  <div class="container-width py-16">
+    <p class="eyebrow">Security posture</p>
+    <h2 class="section-title mt-3">Current mail security controls</h2>
+    <div class="card mt-6 max-w-5xl">
+      <p class="text-muted">
+        Domain registration is managed on SpaceShip. DNS and mail-related security policy is managed
+        on Cloudflare DNS. Mail routing and mailbox service currently run through
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://forwardemail.net"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Forward Email
+        </a>.
+      </p>
+      <p class="mt-4 text-sm text-muted">
+        Per
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://forwardemail.net/en/private-business-email"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Forward Email documentation
+        </a>
+        and their
+        <a
+          class="text-text underline decoration-accent/60 underline-offset-2"
+          href="https://forwardemail.net/en/blog/docs/best-quantum-safe-encrypted-email-service"
+          target="_blank"
+          rel="noreferrer"
+        >
+          security notes
+        </a>, their service model includes encrypted mailbox storage and a zero-access architecture.
+        Leter relies on that provider for the current mailbox layer.
+      </p>
+
+      <ul class="mt-5 grid gap-3 text-sm text-muted md:grid-cols-2">
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
+          <span class="text-text">SPF</span> authorization policy
+          (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc7208">RFC 7208</a>)
+        </li>
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
+          <span class="text-text">DKIM</span> message signing
+          (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc6376">RFC 6376</a>)
+        </li>
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
+          <span class="text-text">DMARC</span> policy and reporting (aggregate and forensic/failure reporting)
+          (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc7489">RFC 7489</a>)
+        </li>
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
+          <span class="text-text">MTA-STS</span> transport policy
+          (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8461">RFC 8461</a>)
+        </li>
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3 md:col-span-2">
+          <span class="text-text">SMTP TLS Reporting (TLS-RPT)</span> for TLS visibility and incident
+          diagnostics
+          (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8460">RFC 8460</a>)
+        </li>
+      </ul>
+
+      <p class="mt-5 text-sm text-muted">
+        These controls strengthen mail authentication and transport security. They do not mean
+        mailbox-level end-to-end encryption is currently operated by Leter.
+      </p>
+    </div>
+  </div>
+</section>

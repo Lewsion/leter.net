@@ -1,0 +1,27 @@
+---
+const principles = [
+  "Privacy by design",
+  "Sovereignty",
+  "Decentralization",
+  "Reliability",
+  "Anti-surveillance posture",
+  "Mail-grade standards"
+];
+---
+
+<section id="principles" class="section-border">
+  <div class="container-width py-16">
+    <p class="eyebrow">Principles</p>
+    <h2 class="section-title mt-3">Non-negotiable design constraints</h2>
+    <ul class="mt-6 grid gap-3 md:grid-cols-2">
+      {
+        principles.map((item, index) => (
+          <li class="card text-muted">
+            <p class="font-mono text-xs text-muted">P0{index + 1}</p>
+            <p class="mt-2 text-text">{item}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
