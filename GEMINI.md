@@ -22,6 +22,7 @@ Always preserve these facts in code and copy:
 5. DNS and mail-security DNS policy are managed via [Cloudflare DNS](https://www.cloudflare.com).
 6. Infrastructure operations are provided by [Lewsion](https://lewsion.com).
 7. The roadmap may describe sovereign/self-hosted direction, but only as planned evolution.
+8. WKD (Web Key Directory) is implemented at `/.well-known/openpgpkey/`. Keys are user-provided public keys only. Leter does **not** hold or generate private keys.
 
 ## 3) Allowed vs Forbidden Messaging
 
@@ -92,19 +93,20 @@ Homepage sections:
 1. Hero
 2. Origin story
 3. Current state
-4. Security posture
+4. Security posture (includes WKD entry)
 5. Initiative scope
 6. Principles
 7. Planned evolution
 8. Early access
-9. Footer with legal links and provider disclosure
+9. Footer with legal links, provider disclosure, and WKD link
 
-Legal pages:
+Legal & utility pages:
 
 - `/terms`
 - `/privacy`
 - `/abuse`
 - `/dmca`
+- `/wkd` — Web Key Discovery, OpenPGP key directory, and hash generator
 
 Updates reference:
 
@@ -126,7 +128,11 @@ leter.net/
 ├─ .gitignore
 ├─ .dockerignore
 ├─ public/
-│  └─ favicon.svg
+│  ├─ favicon.svg
+│  └─ .well-known/
+│     └─ openpgpkey/
+│        ├─ policy                   # Empty WKD policy file (signals WKD support)
+│        └─ hu/                      # Hashed user key directory (binary .pgp files)
 └─ src/
    ├─ styles/
    │  └─ global.css                  # Global tokens/utilities/theme primitives
@@ -135,7 +141,8 @@ leter.net/
    │  ├─ terms.astro                 # Terms page
    │  ├─ privacy.astro               # Privacy page
    │  ├─ abuse.astro                 # Abuse page
-   │  └─ dmca.astro                  # DMCA page
+   │  ├─ dmca.astro                  # DMCA page
+   │  └─ wkd.astro                   # WKD key directory, OpenPGP info, hash generator
    └─ components/
       ├─ Hero.astro
       ├─ OriginStory.astro
