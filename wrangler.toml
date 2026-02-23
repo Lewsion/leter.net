@@ -2,12 +2,10 @@ name = "leternet"
 account_id = "9d1aa3bcce298960a2fc322768d4f019"
 compatibility_date = "2025-09-27"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
-workers_dev = false
-
-[assets]
-directory = "dist"
+workers_dev = true
 
 [[routes]]
-pattern = "leter.net/*"
-zone_id = "6e70bfe00308dd5a6faed540ad23b01a"
+pattern = "leter.net"
+custom_domain = true
+
 
