@@ -24,8 +24,9 @@ This repository contains a static landing site for `leter.net`, currently invite
 ### 1) Install Node.js
 
 Install Node.js 20 LTS:
+
 - Windows (recommended): `winget install OpenJS.NodeJS.LTS`
-- Or download from https://nodejs.org/
+- Or download from <https://nodejs.org/>
 
 Verify:
 
