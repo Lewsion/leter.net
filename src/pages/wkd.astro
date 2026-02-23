@@ -63,7 +63,7 @@ import SiteFooter from "../components/SiteFooter.astro";
           OpenPGP public key<br class="hidden md:block" /> directory
         </h1>
         <p class="mt-5 max-w-2xl text-base text-muted md:text-lg">
-          Any compatible client — Proton Mail, Tuta, Thunderbird, GPG Suite — can automatically fetch
+          Any compatible client — Proton Mail, Tuta, Thunderbird, Mailvelope — can automatically fetch
           the OpenPGP public key of a <span class="text-text">@leter.net</span> user from this
           directory. No manual key exchange required.
         </p>
@@ -72,44 +72,6 @@ import SiteFooter from "../components/SiteFooter.astro";
 
     <!-- ─── Main content ──────────────────────────────────────────────── -->
     <main class="container-width py-12">
-
-      <!-- What is OpenPGP / WKD ─────────────────────────────────────── -->
-      <section class="mb-12">
-        <p class="eyebrow">Background</p>
-        <h2 class="section-title mt-2">What is OpenPGP and why does WKD matter?</h2>
-
-        <div class="card mt-5 space-y-4 text-sm text-muted">
-          <p>
-            <span class="font-semibold text-text">OpenPGP</span> (RFC 4880) is the open standard for
-            end-to-end encrypted email. A sender encrypts with the recipient's <em>public key</em>;
-            only the recipient — holding the matching <em>private key</em> — can decrypt it. No
-            intermediary server can read the message content.
-          </p>
-          <p>
-            The historic problem was <span class="font-semibold text-text">key distribution</span>.
-            Legacy keyservers were noisy, unreliable, and vulnerable to poisoning attacks. Most people
-            simply avoided encryption altogether.
-          </p>
-          <p>
-            <span class="font-semibold text-text">Web Key Directory (WKD)</span> solves this by
-            anchoring key discovery to domain ownership. A client asks the domain directly:
-            <em>"Do you have a public key for user@leter.net?"</em> — and the domain returns it over
-            HTTPS. Simple, deterministic, and built into every major secure email client.
-          </p>
-        </div>
-
-        <div class="mt-4 flex items-start gap-3 rounded-xl border border-green/20 bg-green/5 p-4 text-sm text-muted">
-          <svg class="mt-0.5 shrink-0 text-green" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="4" y="9" width="12" height="9" rx="1.5"/>
-            <path d="M6 9V7a4 4 0 0 1 8 0v2"/>
-          </svg>
-          <p>
-            <span class="font-semibold text-text">Your private key never leaves your device.</span>
-            Leter does not generate, store, or have access to private keys. This directory only hosts
-            user-provided public keys — a public delegation, not an escrow or custody service.
-          </p>
-        </div>
-      </section>
 
       <!-- Key lookup tool ─────────────────────────────────────────────── -->
       <section class="mb-12">
@@ -125,14 +87,16 @@ import SiteFooter from "../components/SiteFooter.astro";
           style="background: radial-gradient(ellipse at 0% 0%, rgba(74,222,128,0.055), transparent 55%), #111;"
         >
           <label for="email-input" class="block text-xs font-medium text-muted">Email address</label>
-          <input
-            id="email-input"
-            type="email"
-            placeholder="user@leter.net"
-            autocomplete="off"
-            spellcheck="false"
-            class="mt-2 w-full rounded-lg border border-white/15 bg-white/4 px-3.5 py-2.5 text-sm text-text placeholder-muted/50 outline-none transition-colors focus:border-green/50"
-          />
+          <div class="mt-2 flex items-center gap-3">
+            <input
+              id="email-input"
+              type="email"
+              placeholder="user@leter.net"
+              autocomplete="off"
+              spellcheck="false"
+              class="w-full rounded-lg border border-white/15 bg-white/4 px-3.5 py-2.5 text-sm text-text placeholder-muted/50 outline-none transition-colors focus:border-green/50"
+            />
+          </div>
 
           <!-- Result: key found -->
           <div id="key-found" class="mt-4 hidden rounded-lg border border-green/20 bg-green/5 p-4">
@@ -150,8 +114,7 @@ import SiteFooter from "../components/SiteFooter.astro";
               Key URL: <a id="key-url" href="#" class="font-mono text-green/80 underline underline-offset-2" target="_blank" rel="noreferrer"></a>
             </p>
             <p class="mt-3 text-xs text-muted">
-              Email clients that support WKD (Proton, Tuta, Thunderbird, etc.) will fetch this key
-              automatically when composing an encrypted message to this address.
+              Email clients that support WKD will fetch this key automatically when composing an encrypted message.
             </p>
             <a
               id="download-btn"
@@ -181,8 +144,7 @@ import SiteFooter from "../components/SiteFooter.astro";
             </p>
             <p class="mt-2 text-sm text-muted">
               This user has not published their OpenPGP public key on this domain yet.
-              If you need to send end-to-end encrypted communication, contact the user directly
-              and request that they provide or publish their public key.
+              If you need to send encrypted communication, contact the user and request their key.
             </p>
           </div>
 
@@ -199,16 +161,13 @@ import SiteFooter from "../components/SiteFooter.astro";
       <!-- Interoperability ────────────────────────────────────────────── -->
       <section class="mb-12">
         <p class="eyebrow">Interoperability</p>
-        <h2 class="section-title mt-2">Clients that support WKD key discovery</h2>
-        <p class="mt-3 text-sm text-muted">
-          Once a key is published, senders on any of these platforms can encrypt automatically — no
-          manual key import needed:
-        </p>
+        <h2 class="section-title mt-2">WKD-compatible clients</h2>
         <ul class="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3">
           {[
             "Proton Mail",
             "Tuta (Tutanota)",
             "Thunderbird",
+            "Mailvelope",
             "Evolution",
             "KMail",
             "GPG Suite (macOS)",
@@ -216,7 +175,7 @@ import SiteFooter from "../components/SiteFooter.astro";
             "Sequoia PGP",
             "Delta Chat",
             "Mutt / NeoMutt",
-            "Any WKD-compatible client",
+            "Any WKD client",
           ].map((name) => (
             <li class="flex items-center gap-2 rounded-lg border border-white/10 bg-panel/80 px-3 py-2.5 text-sm text-muted">
               <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-green"></span>
@@ -226,94 +185,104 @@ import SiteFooter from "../components/SiteFooter.astro";
         </ul>
       </section>
 
-      <!-- WKD hash generator (dev tool) ───────────────────────────────── -->
+      <!-- End-to-end encryption guidance ──────────────────────────────── -->
       <section class="mb-12">
-        <p class="eyebrow">Developer tool</p>
-        <h2 class="section-title mt-2">Compute a WKD hash</h2>
-        <p class="mt-3 text-sm text-muted">
-          WKD identifies keys by a z-base-32 encoded SHA-1 hash of the lowercased local part.
-        </p>
+        <p class="eyebrow">For External Senders</p>
+        <h2 class="section-title mt-2">Sending encrypted mail to leter.net</h2>
 
-        <div class="card mt-4">
-          <label for="hash-input" class="block text-xs font-medium text-muted">Email address</label>
-          <input
-            id="hash-input"
-            type="email"
-            placeholder="user@leter.net"
-            autocomplete="off"
-            spellcheck="false"
-            class="mt-2 w-full rounded-lg border border-white/15 bg-white/4 px-3.5 py-2.5 text-sm text-text placeholder-muted/50 outline-none transition-colors focus:border-green/50"
-          />
-          <div id="hash-result" class="mt-3 hidden">
-            <p class="text-xs text-muted">Hash: <code id="dev-hash" class="font-mono text-green"></code></p>
-            <p class="mt-1 break-all text-xs text-muted">Path: <code id="dev-path" class="font-mono text-green/80"></code></p>
-          </div>
+        <div class="card mt-5 space-y-4 text-sm text-muted">
+          <p>
+            <span class="font-semibold text-text">If a key is published:</span> Your email client
+            will automatically discover it via WKD and encrypt your message (assuming you use a supported client). 
+            No action is needed on your part — just compose and send.
+          </p>
+          <p>
+            <span class="font-semibold text-text">If no key is published:</span> End-to-end encryption is always preferable, especially if you are a bank,
+            legal counsel, or handling sensitive communication. Contact the
+            recipient directly and request that they provide their key manually.
+          </p>
+          <p>
+            End-to-end encryption ensures that <span class="text-text">only the intended recipient</span> can read the message. No
+            server, provider, or administrator — including leter.net — can intercept the content.
+          </p>
         </div>
       </section>
 
       <!-- How keys are managed ────────────────────────────────────────── -->
       <section class="mb-12">
-        <p class="eyebrow">Key management</p>
-        <h2 class="section-title mt-2">How public keys are published</h2>
+        <p class="eyebrow">For Leter.net Users</p>
+        <h2 class="section-title mt-2">Admin-verified key publication</h2>
 
         <div class="card mt-5 space-y-4 text-sm text-muted">
           <p>
-            Public keys on this domain are managed by the domain administrators. Users provide their
-            OpenPGP public key (binary format, non-armored), and the administrators publish it to the
-            WKD directory after verification.
+            To maintain the highest level of trust, public keys published to the <code class="text-xs text-text">leter.net</code> 
+            WKD directory are <span class="font-semibold text-green">strictly administrator-verified</span>. 
           </p>
           <p>
-            There is currently no self-service key submission. If you are a leter.net user and want
-            your key published, contact the domain administrators directly.
+            While you can upload your OpenPGP public key to public keyservers like <code class="text-xs text-text">keys.openpgp.org</code>, 
+            <code class="text-xs text-text">keyserver.ubuntu.com</code>, or Mailvelope's key server, <strong>those uploads are completely 
+            independent of this directory</strong>. Third-party keyservers only verify email ownership; they do not carry the organizational 
+            endorsement of Lewsion or the leter.net domain.
+          </p>
+          <p>
+            By restricting the official WKD endpoint to admin-verified keys, we establish a definitive, high-confidence source of truth for 
+            journalists and external senders. When a sender's client fetches a key from this specific domain, they are guaranteed that the 
+            key belongs to a verified member of the leter.net initiative.
+          </p>
+          <p>
+            <span class="font-semibold text-text">How to publish:</span> There is currently no automated self-service key submission. 
+            If you need your key published here, please provide your exported binary OpenPGP public key directly to the domain administrators. 
+            We plan to expand this to an automated internal system in the future.
           </p>
         </div>
       </section>
 
-      <!-- End-to-end encryption guidance ──────────────────────────────── -->
+      <!-- What is OpenPGP / WKD ─────────────────────────────────────── -->
       <section class="mb-12">
-        <p class="eyebrow">For senders</p>
-        <h2 class="section-title mt-2">Sending encrypted mail to leter.net users</h2>
+        <p class="eyebrow">Background</p>
+        <h2 class="section-title mt-2">What is OpenPGP and WKD?</h2>
 
         <div class="card mt-5 space-y-4 text-sm text-muted">
           <p>
-            <span class="font-semibold text-text">If a key is published:</span> Your email client
-            will automatically discover it via WKD and encrypt your message. No action needed on your
-            part — just compose and send.
+            <span class="font-semibold text-text">OpenPGP</span> (RFC 4880) is the open standard for
+            end-to-end encrypted email. A sender encrypts with the recipient's <em>public key</em>;
+            only the recipient — holding the matching <em>private key</em> — can decrypt it.
           </p>
           <p>
-            <span class="font-semibold text-text">If no key is published:</span> Contact the
-            recipient directly and request that they publish their OpenPGP public key, or ask them to
-            share it manually. End-to-end encryption is always preferable — whether you are a bank,
-            legal counsel, or any other sender handling sensitive communication.
-          </p>
-          <p>
-            End-to-end encryption ensures that only the intended recipient can read the message. No
-            server, provider, or administrator — including leter.net — can access the content.
+            <span class="font-semibold text-text">Web Key Directory (WKD)</span> solves the historic problem of key distribution. 
+            Instead of relying on noisy, decentralized keyservers, WKD anchors key discovery to domain ownership. 
+            A client simply asks the domain directly over HTTPS: <em>"Do you have a public key for user@leter.net?"</em> 
+            This is deterministic, secure, and built into every major secure email client.
           </p>
         </div>
       </section>
 
       <!-- Technical reference ─────────────────────────────────────────── -->
       <section class="mb-6">
-        <p class="eyebrow">Technical reference</p>
-        <h2 class="section-title mt-2">WKD path structure</h2>
-        <div class="card mt-5 space-y-3 text-sm text-muted">
+        <p class="eyebrow">Technical Reference</p>
+        <h2 class="section-title mt-2">Hash generator & path structure</h2>
+        <div class="card mt-5 space-y-4 text-sm text-muted">
           <p>
-            Leter uses the <span class="font-semibold text-text">direct method</span> defined in
-            <a
-              href="https://www.ietf.org/archive/id/draft-koch-openpgp-webkey-service-16.txt"
-              target="_blank"
-              rel="noreferrer"
-              class="text-green underline underline-offset-2"
-            >draft-koch-openpgp-webkey-service</a>. Keys are served at:
+            WKD identifies keys by a z-base-32 encoded SHA-1 hash of the lowercased local part of the email address. 
+            Leter uses the <span class="font-semibold text-text">direct method</span>. Keys are served at:
           </p>
           <pre class="overflow-x-auto rounded-lg border border-white/10 bg-white/4 px-4 py-3 font-mono text-xs text-green"><code>https://leter.net/.well-known/openpgpkey/hu/&lt;zbase32-sha1-localpart&gt;</code></pre>
-          <p>
-            The <code class="rounded border border-white/10 bg-white/5 px-1 py-0.5 font-mono text-xs text-green">policy</code> file at
-            <code class="rounded border border-white/10 bg-white/5 px-1 py-0.5 font-mono text-xs text-green">/.well-known/openpgpkey/policy</code>
-            signals WKD support. Keys must be binary OpenPGP format, served as
-            <code class="rounded border border-white/10 bg-white/5 px-1 py-0.5 font-mono text-xs text-green">application/octet-stream</code>.
-          </p>
+          
+          <div class="mt-4 border-t border-white/5 pt-4">
+            <label for="hash-input" class="block text-xs font-medium text-text">Standalone hash generator</label>
+            <input
+              id="hash-input"
+              type="email"
+              placeholder="user@leter.net"
+              autocomplete="off"
+              spellcheck="false"
+              class="mt-2 w-full rounded-lg border border-white/15 bg-black/50 px-3.5 py-2 text-sm text-text placeholder-muted/50 outline-none transition-colors focus:border-green/50"
+            />
+            <div id="hash-result" class="mt-3 hidden">
+              <p class="text-xs text-muted">Hash: <code id="dev-hash" class="font-mono text-green"></code></p>
+              <p class="mt-1 break-all text-xs text-muted">Path: <code id="dev-path" class="font-mono text-green/80"></code></p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -417,10 +386,12 @@ import SiteFooter from "../components/SiteFooter.astro";
 
       let devTimer: ReturnType<typeof setTimeout>;
 
-      hashInput.addEventListener('input', () => {
-        clearTimeout(devTimer);
-        devTimer = setTimeout(() => computeDevHash(hashInput.value.trim()), 200);
-      });
+      if (hashInput) {
+        hashInput.addEventListener('input', () => {
+          clearTimeout(devTimer);
+          devTimer = setTimeout(() => computeDevHash(hashInput.value.trim()), 200);
+        });
+      }
 
       async function computeDevHash(email: string) {
         hashResult.classList.add('hidden');

@@ -121,6 +121,28 @@ Suggested local flow before pushing:
 5. `docker build -t leter-net:latest .`
 6. `docker run --rm -p 8080:80 leter-net:latest`
 
+## WKD Key Management (Admin)
+
+OpenPGP Web Key Directory (WKD) keys are served securely from this repository. Keys are verified by Leter/Lewsion administrators.
+
+To compute the WKD hash and export a user's public key natively using GnuPG:
+
+1. **Find the WKD Hash**:
+
+   ```bash
+   gpg --with-wkd-hash -k user@leter.net
+   ```
+
+   Look for the `User ID` line containing the hash (e.g., `ybndrfg8ejkmcpqxot1uwisza345h769@leter.net`).
+
+2. **Export the public key (Binary format, NOT armored)**:
+
+   ```bash
+   gpg --export user@leter.net > public/.well-known/openpgpkey/hu/ybndrfg8ejkmcpqxot1uwisza345h769
+   ```
+
+Do not use `--armor`. The WKD specification requires keys to be served as binary `application/octet-stream` files. Drop the file into the `hu/` directory, commit, and push.
+
 ## Legal Pages
 
 Current legal and policy routes:
