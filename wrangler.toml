@@ -1,0 +1,9 @@
+name = "leternet"
+compatibility_date = "2024-02-23"
+pages_build_output_dir = "dist"
+
+[env.production]
+# Add any production-specific overrides here
+
+[env.preview]
+# Add any preview-specific overrides here

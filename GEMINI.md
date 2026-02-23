@@ -124,10 +124,12 @@ leter.net/
 ├─ astro.config.mjs                  # Astro config (static output)
 ├─ tailwind.config.cjs               # Tailwind theme tokens
 ├─ postcss.config.cjs                # PostCSS pipeline
-├─ Dockerfile                        # Multi-stage build + nginx runtime
+├─ Dockerfile                        # Multi-stage build + nginx runtime (legacy proxy)
+├─ wrangler.toml                     # Cloudflare Pages deployment configuration
 ├─ .gitignore
 ├─ .dockerignore
 ├─ public/
+│  ├─ _headers                       # Cloudflare Pages custom headers
 │  ├─ favicon.svg
 │  └─ .well-known/
 │     └─ openpgpkey/
@@ -168,10 +170,10 @@ leter.net/
 
 Primary runtime target:
 
-1. Build static site in Docker builder stage.
-2. Serve `dist/` using `nginx:alpine`.
-3. Expose port `80` only.
-4. TLS/reverse-proxy handled externally (Coolify and edge proxy).
+1. Build static site using Astro (`npm run build`).
+2. Deploy `dist/` directly to **Cloudflare Pages**.
+3. Cloudflare Pages applies `public/_headers` at the edge to serve WKD keys securely with correct MIME types and CORS profiles.
+4. Legacy Docker build and nginx configs are preserved but secondary.
 
 ## 11) Content Editing Rules
 
