@@ -1,0 +1,26 @@
+
+> leter.net@0.1.0 build
+> astro build
+
+3:11:30 AM [vite] (ssr) Error when evaluating SSR module H:\Github\leter.net\astro.config.mjs: Cannot find module '@astrojs/cloudflare' imported from 'H:/Github/leter.net/astro.config.mjs'
+      at fetchModule (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46842:19)
+      at RunnableDevEnvironment.fetchModule (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47933:12)
+      at fetchModule (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47887:21)
+      at handleInvoke (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39002:28)
+      at EventEmitter.listenerForInvokeHandler (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39075:25)
+      at EventEmitter.emit (node:events:508:20)
+      at Object.send (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:25190:40)
+      at Object.invoke (file:///H:/Github/leter.net/node_modules/vite/dist/node/module-runner.js:621:34)
+      at Object.invoke (file:///H:/Github/leter.net/node_modules/vite/dist/node/module-runner.js:682:34)
+      at SSRCompatModuleRunner.getModuleInformation (file:///H:/Github/leter.net/node_modules/vite/dist/node/module-runner.js:1205:94)
+[astro] Unable to load your Astro config
+
+Cannot find module '@astrojs/cloudflare' imported from 'H:/Github/leter.net/astro.config.mjs'
+  Location:
+    H:\Github\leter.net\node_modules\vite\dist\node\chunks\dep-D4NMHUTW.js:46842:19
+  Stack trace:
+    at fetchModule (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46842:19)
+    at fetchModule (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:47887:21)
+    at EventEmitter.listenerForInvokeHandler (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:39075:25)
+    at Object.send (file:///H:/Github/leter.net/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:25190:40)
+    at Object.invoke (file:///H:/Github/leter.net/node_modules/vite/dist/node/module-runner.js:682:34)
