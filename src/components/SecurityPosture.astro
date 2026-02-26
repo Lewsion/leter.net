@@ -69,17 +69,28 @@
           <span class="text-text">MTA-STS</span> transport policy
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8461">RFC 8461</a>)
         </li>
-        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
+        <li class="rounded-lg border border-white/10 bg-surface px-4 py-3 md:col-span-2">
           <span class="text-text">SMTP TLS Reporting (TLS-RPT)</span> for TLS visibility and incident
           diagnostics
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8460">RFC 8460</a>)
         </li>
-        <li class="rounded-lg border border-green/20 bg-green/5 px-4 py-3 md:col-span-2">
-          <span class="text-text">Web Key Directory (WKD)</span> — OpenPGP public key discovery over HTTPS.
-          Enables Proton, Tuta, Thunderbird, and other clients to fetch user keys automatically.
-          <a class="ml-1 underline underline-offset-2 decoration-green/50 text-green hover:text-text" href="/wkd">View key directory →</a>
-        </li>
       </ul>
+
+      <!-- WKD Delegation Explained -->
+      <div class="mt-5 rounded-xl border border-green/20 bg-green/5 p-5">
+        <h3 class="font-semibold text-text">Web Key Directory (WKD) Delegation</h3>
+        <p class="mt-2 text-sm text-muted">
+          Leter.net is currently delegating OpenPGP public key discovery to the global
+          <a class="text-green underline underline-offset-2 hover:text-green/80 transition-colors" href="https://keys.openpgp.org" target="_blank" rel="noreferrer">keys.openpgp.org</a> directory.
+          This is achieved via a <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">CNAME</code> DNS record pointing <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">openpgpkey.leter.net</code> to <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">wkd.keys.openpgp.org</code>.
+        </p>
+        <p class="mt-3 text-sm text-muted">
+          <span class="font-medium text-text">Why we are doing this:</span> While Leter operates on a zero-knowledge architecture, true end-to-end encryption (E2EE) requires sender-side encryption. We are currently developing a sophisticated, automated internal WKD system to seamlessly push keys directly to our sovereign infrastructure. Until that system is officially published, delegating to the open standard public directory ensures external senders (using Thunderbid, Proton, etc.) can still easily and automatically fetch our users' keys.
+        </p>
+        <p class="mt-3 text-sm text-muted">
+          <span class="font-medium text-text">Managing your keys:</span> Domain users must manually generate and upload their OpenPGP public key to <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">keys.openpgp.org</code>. The service will verify your <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">@leter.net</code> email address before making the key discoverable. You can delete or manage your published key at any time using their management portal.
+        </p>
+      </div>
 
       <p class="mt-5 text-sm text-muted">
         DMARC aggregate and forensic/failure reporting endpoints are operated on

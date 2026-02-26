@@ -1,157 +1,102 @@
 # leter.net
 
-Private, encryption-first email initiative landing page.
+> Private, encryption-first email initiative landing page.
 
-This repository contains a static landing site for `leter.net`, currently invite-only and internal-first.
+This repository contains the source code for the public-facing static landing site of `leter.net`.
+Currently operating as an invite-only and internal-first service, leter.net serves as the public foundation for a high-trust communication domain.
 
-## Current Positioning
+## Overview
 
-- Mail routing and current mailbox provisioning use [Forward Email](https://forwardemail.net) (zero-knowledge provider).
-- Leter does not currently operate mailbox-level storage directly.
-- No claim is made that self-hosted end-to-end encryption is currently deployed.
-- Roadmap targets a sovereign, self-hosted encrypted infrastructure.
-- Infrastructure is operated by [Lewsion](https://lewsion.com).
+leter.net is operated as a strict invite-only domain for high-trust communication use cases. This repository acts as the public-facing documentation and trust anchor for the domain, providing visibility into our operational status, security controls, and accountability paths.
 
-## Stack
+### Current Operating Model
 
-- Astro (static site generator)
-- Tailwind CSS
-- Docker (multi-stage build)
-- Nginx Alpine runtime on port `80`
+- **Infrastructure Management**: Server deployment and operational infrastructure are provided by [Lewsion](https://lewsion.com).
+- **Domain & DNS**: Registration is managed via [SpaceShip](https://www.spaceship.com), with DNS and active security policies orchestrated through [Cloudflare](https://www.cloudflare.com).
+- **Mail Routing**: Mail routing and current mailbox provisioning are powered by [Forward Email](https://forwardemail.net), utilizing a zero-knowledge architecture. Leter does not handle mailbox-level storage directly.
+- **Web Key Directory (WKD)**: OpenPGP public key discovery is delegated to [keys.openpgp.org](https://keys.openpgp.org) to facilitate seamless end-to-end encrypted communication for external senders.
+
+## Technology Stack
+
+The landing page is engineered for speed, simplicity, and security:
+
+- **Framework**: [Astro](https://astro.build/) (Static Site Generation)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/) (Primary Edge)
+- **Containerization**: Docker (Multi-stage build with Nginx Alpine)
 
 ## Local Development
 
-### 1) Install Node.js
+To contribute or run the project locally, ensure you have Node.js 20 LTS installed.
 
-Install Node.js 20 LTS:
+### 1. Installation
 
-- Windows (recommended): `winget install OpenJS.NodeJS.LTS`
-- Or download from <https://nodejs.org/>
-
-Verify:
+Clone the repository and install dependencies:
 
 ```bash
-node -v
-npm -v
-```
-
-### 2) Install dependencies
-
-First time in a new clone (no lockfile yet):
-
-```bash
+git clone https://github.com/Lewsion/leter.net.git
+cd leter.net
 npm install
 ```
 
-After `package-lock.json` exists, you can use:
+*(Note: If `package-lock.json` is present, prefer `npm ci` for a clean install).*
 
-```bash
-npm ci
-```
+### 2. Development Server
 
-### 3) Run dev server
+Start the Astro development server:
 
 ```bash
 npm run dev
 ```
 
-Open this URL in your browser:
+The site will be available at [http://localhost:4321](http://localhost:4321).
 
-`http://localhost:4321`
+### 3. Build and Preview
 
-### 4) Production build
+Generate a production-ready static build:
 
 ```bash
 npm run build
 ```
 
-### 5) Preview production build
+Preview the statically generated site locally:
 
 ```bash
 npm run preview
 ```
 
-Open this URL in your browser:
+## Docker Deployment (Legacy / Alternative)
 
-`http://localhost:4321`
+While primary deployment executes automatically to Cloudflare Pages, a production-ready `Dockerfile` is provided for standard server deployments (e.g., via Coolify).
 
-## Docker
-
-Build image:
+### Build
 
 ```bash
 docker build -t leter-net:latest .
 ```
 
-Run container on local port `8080`:
+### Run
 
 ```bash
 docker run --rm -p 8080:80 leter-net:latest
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080`.
 
-Deployment note:
+**Note**: The Docker image relies on an Nginx Alpine container serving static assets on port `80`. TLS termination and reverse proxying must be handled externally by your infrastructure.
 
-- Reverse proxy, TLS, and edge security are expected to be handled externally (for example via Coolify).
-- The container serves static files on port `80` only.
+## Legal & Compliance
 
-### Coolify alignment
+The repository includes templates for our critical legal and policy documents:
 
-- Build Type: Dockerfile
-- Dockerfile path: `./Dockerfile`
-- Exposed/Container port: `80`
-- No internal TLS config in container (Coolify handles TLS/proxy externally)
-- No custom start command needed (Dockerfile already runs nginx)
+- `/terms` - Terms of Service
+- `/privacy` - Privacy Policy
+- `/abuse` - Abuse Policy
+- `/dmca` - DMCA Policy
 
-## VS Code Workflow
+## Contributing
 
-Recommended extensions:
+We welcome contributions to improve the site's layout, copy, accessibility, and documentation. Please review our [Contributing Guidelines](CONTRIBUTING.md) before submitting a Pull Request. *(Note: We no longer accept OpenPGP WKD keys via Pull Requests).*
 
-- `astro-build.astro-vscode`
-- `bradlc.vscode-tailwindcss`
-- `esbenp.prettier-vscode`
-
-Suggested local flow before pushing:
-
-1. `npm ci`
-2. `npm run dev` and verify content/copy in browser
-3. `npm run build`
-4. `npm run preview`
-5. `docker build -t leter-net:latest .`
-6. `docker run --rm -p 8080:80 leter-net:latest`
-
-## WKD Key Management (Admin)
-
-OpenPGP Web Key Directory (WKD) keys are served securely from this repository. Keys are verified by Leter/Lewsion administrators.
-
-To compute the WKD hash and export a user's public key natively using GnuPG:
-
-1. **Find the WKD Hash**:
-
-   ```bash
-   gpg --with-wkd-hash -k user@leter.net
-   ```
-
-   Look for the `User ID` line containing the hash (e.g., `ybndrfg8ejkmcpqxot1uwisza345h769@leter.net`).
-
-2. **Export the public key (Binary format, NOT armored)**:
-
-   ```bash
-   gpg --export user@leter.net > public/.well-known/openpgpkey/hu/ybndrfg8ejkmcpqxot1uwisza345h769
-   ```
-
-Do not use `--armor`. The WKD specification requires keys to be served as binary `application/octet-stream` files. Drop the file into the `hu/` directory, commit, and push.
-
-## Legal Pages
-
-Current legal and policy routes:
-
-- `/terms`
-- `/privacy`
-- `/abuse`
-- `/dmca`
-
-Infrastructure credit line:
-
-`Server deployment and operational infrastructure provided by [Lewsion](https://lewsion.com).`
+---
+*Server deployment and operational infrastructure provided by [Lewsion](https://lewsion.com).*
