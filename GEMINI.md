@@ -23,6 +23,7 @@ Always preserve these facts in code and copy:
 6. Infrastructure operations are provided by [Lewsion](https://lewsion.com).
 7. The roadmap may describe sovereign/self-hosted direction, but only as planned evolution.
 8. Web Key Directory (WKD) is currently delegated to `keys.openpgp.org` via DNS. The standalone direct WKD page and local `openpgpkey` directory have been removed in favor of this interim public delegation.
+9. Matrix server delegation is implemented via `.well-known` files in the `public/` directory, pointing to `matrix.leter.net`.
 
 ## 3) Allowed vs Forbidden Messaging
 
@@ -127,6 +128,11 @@ leter.net/
 ├─ .gitignore
 ├─ .dockerignore
 ├─ public/
+│  ├─ .well-known/
+│  │  └─ matrix/
+│  │     ├─ server               # Matrix server delegation
+│  │     └─ client               # Matrix client delegation
+│  ├─ _headers                  # Cloudflare Pages headers (CORS)
 │  └─ favicon.svg
 └─ src/
    ├─ styles/
