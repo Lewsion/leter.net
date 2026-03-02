@@ -1,71 +1,78 @@
 <section id="current-state" class="section-border">
   <div class="container-width py-16">
-    <p class="eyebrow">Current state</p>
-    <h2 class="section-title mt-3">Operational status</h2>
-    <ul class="mt-6 grid gap-3 text-muted md:grid-cols-2">
-      <li class="card">
-        Mail routing and mailbox provisioning currently run through
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://forwardemail.net"
-          target="_blank"
-          rel="noreferrer"
-        >Forward Email
-        </a>, a zero-knowledge provider.
-      </li>
-      <li class="card">
-        Leter does not currently operate the mailbox storage layer directly.
-      </li>
-      <li class="card">
-        Current users are primarily creator-controlled identities, operator-known users, and
-        members affiliated with
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://lewsion.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Lewsion
-        </a>.
-      </li>
-      <li class="card">
-        Access is granted only by direct invitation. There is no public signup, open waitlist, or
-        self-service registration.
-      </li>
-      <li class="card">
-        This site is a public trust statement for recipients, institutions, and compliance teams
-        validating leter.net addresses.
-      </li>
-      <li class="card">
-        Domain is registered on
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://www.spaceship.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          SpaceShip
+    <p class="eyebrow">Domain status</p>
+    <h2 class="section-title mt-3">Current domain status</h2>
+    <div class="mt-6 space-y-4">
+      <div class="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+        <p class="text-text">
+          leter.net is a privately administered domain.
+          <a
+            class="text-text underline decoration-accent/60 underline-offset-2"
+            href="https://lewsion.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Lewsion Ltd.
+          </a>
+          provides administrative oversight and proprietary security tooling for forensic DMARC and
+          MTA-STS analysis. No commercial email services are offered.
+        </p>
+      </div>
+
+      <ul class="grid gap-3 text-muted md:grid-cols-2">
+        <li class="card">
+          Email routing and processing are handled through
+          <a
+            class="text-text underline decoration-accent/60 underline-offset-2"
+            href="https://forwardemail.net"
+            target="_blank"
+            rel="noreferrer"
+          >Forward Email
+          </a>, a third-party infrastructure provider.
+        </li>
+        <li class="card">
+          Leter does not operate public mailbox storage or service onboarding.
+        </li>
+        <li class="card">
+          Email aliases are created and maintained at the sole discretion of the domain
+          administrator for personal and affiliated communication purposes.
+        </li>
+        <li class="card">
+          This site exists for technical transparency and to provide a public trust statement for
+          recipients and verification teams.
+        </li>
+        <li class="card">
+          Domain is registered on
+          <a
+            class="text-text underline decoration-accent/60 underline-offset-2"
+            href="https://www.spaceship.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            SpaceShip
         </a>. Registrant identity is not publicly listed and is currently protected via WHOIS
         privacy.
-      </li>
-      <li class="card">
-        DNS and security policy management is handled through
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://www.cloudflare.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Cloudflare DNS
-        </a>.
-      </li>
-      <li class="md:col-span-2 rounded-xl border border-white/25 bg-white/[0.06] p-5 text-sm text-text">
-        <p class="font-medium">Alias issuance policy</p>
+        </li>
+        <li class="card">
+          DNS and security policy management is handled through
+          <a
+            class="text-text underline decoration-accent/60 underline-offset-2"
+            href="https://www.cloudflare.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cloudflare DNS
+          </a>.
+        </li>
+      </ul>
+
+      <div class="rounded-xl border border-white/25 bg-white/[0.06] p-5 text-sm text-text">
+        <p class="font-medium">Administrative Policy</p>
         <p class="mt-2 text-muted">
-          Alias inventory is controlled and issued selectively for known, high-trust communication
-          use cases. This is not an open public alias service.
+          Alias inventory is controlled selectively for personal communication. This is not an open
+          public service or multi-tenant platform.
         </p>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </section>

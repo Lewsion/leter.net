@@ -1,36 +1,24 @@
-<footer class="container-width py-10">
-  <nav class="text-sm text-muted">
-    <a class="hover:text-text" href="/terms">Terms</a>
-    <span class="px-2 text-muted/50">|</span>
-    <a class="hover:text-text" href="/privacy">Privacy</a>
-    <span class="px-2 text-muted/50">|</span>
-    <a class="hover:text-text" href="/abuse">Abuse</a>
-    <span class="px-2 text-muted/50">|</span>
-    <a class="hover:text-text" href="/dmca">DMCA</a>
-  </nav>
-  <p class="mt-3 text-sm text-muted">
-    Current provider:
-    <a
-      class="text-text underline decoration-accent/60 underline-offset-2"
-      href="https://forwardemail.net"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Forward Email
-    </a>
-    (zero-knowledge architecture). Leter does not currently operate the mailbox storage layer
-    directly. This website exists to document current operational status, trust signals, and
-    accountability paths.
-  </p>
-  <p class="mt-2 text-sm text-muted">
-    Server deployment and operational infrastructure provided by
-    <a
-      class="text-text underline decoration-accent/60 underline-offset-2"
-      href="https://lewsion.com"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Lewsion
-    </a>.
-  </p>
+<footer class="container-width py-12 border-t border-white/10 mt-16">
+  <div class="grid gap-12 md:grid-cols-2">
+    <div>
+      <h2 class="text-sm font-semibold text-text">leter.net</h2>
+      <p class="mt-4 max-w-xs text-xs leading-relaxed text-muted">
+        A privately administered domain used for discretionary communication and technical
+        transparency. No public services are offered.
+      </p>
+    </div>
+    <div class="flex flex-col gap-4 text-xs text-muted">
+      <nav class="flex flex-wrap gap-x-6 gap-y-2">
+        <a class="hover:text-text transition-colors" href="/terms">Transparency & Terms</a>
+        <a class="hover:text-text transition-colors" href="/privacy">Privacy</a>
+        <a class="hover:text-text transition-colors" href="/abuse">Abuse</a>
+        <a class="hover:text-text transition-colors" href="/dmca">DMCA</a>
+        <a class="hover:text-text transition-colors" href="mailto:abuse@leter.net">Contact</a>
+      </nav>
+      <p>
+        &copy; {new Date().getFullYear()} leter.net — Privately administered domain.
+        Technical oversight by Lewsion Ltd.
+      </p>
+    </div>
+  </div>
 </footer>
