@@ -5,9 +5,9 @@ Project instructions for Gemini CLI, Google AI coding tools, and any AI agent co
 ## 1) Project Identity
 
 Project name: `leter.net`  
-Type: private, invite-only landing site for an encryption-first email initiative  
-Owner/operator: [Lewsion](https://lewsion.com)  
-Status: early-stage, internal-first, not a public mailbox platform
+Type: private, individually owned personal domain infrastructure  
+Owner/operator: [Lewsion](https://lewsion.com) (Technical Oversight)  
+Status: private administration, not a public mailbox platform
 
 This repository is the public-facing website foundation, not the full mail product for now.
 
@@ -15,15 +15,14 @@ This repository is the public-facing website foundation, not the full mail produ
 
 Always preserve these facts in code and copy:
 
-1. Leter currently uses **Forward Email** as the active provider for routing/provisioning.
-2. Leter currently does **not** operate mailbox storage directly.
-3. Leter must **not** claim currently deployed Leter-operated end-to-end encryption.
+1. leter.net currently uses **Forward Email** as the active provider for routing.
+2. leter.net currently does **not** operate mailbox storage directly.
+3. leter.net must **not** claim currently deployed leter-operated end-to-end encryption.
 4. Domain registration is managed via [SpaceShip](https://www.spaceship.com).
 5. DNS and mail-security DNS policy are managed via [Cloudflare DNS](https://www.cloudflare.com).
-6. Infrastructure operations are provided by [Lewsion](https://lewsion.com).
-7. The roadmap may describe sovereign/self-hosted direction, but only as planned evolution.
-8. Web Key Directory (WKD) is currently delegated to `keys.openpgp.org` via DNS. The standalone direct WKD page and local `openpgpkey` directory have been removed in favor of this interim public delegation.
-9. Matrix server delegation is implemented via `.well-known` files in the `public/` directory, pointing to `matrix.leter.net`.
+6. Technical administration and transparency reporting are provided by [Lewsion](https://lewsion.com).
+7. Web Key Directory (WKD) is currently delegated to `keys.openpgp.org` via DNS. The standalone direct WKD page and local `openpgpkey` directory have been removed in favor of this interim public delegation.
+8. Matrix server delegation is implemented via `.well-known` files in the `public/` directory, pointing to `matrix.leter.net`.
 
 ## 3) Allowed vs Forbidden Messaging
 
@@ -31,9 +30,9 @@ Use language like:
 
 - "Current provider: Forward Email."
 - "Zero-knowledge provider model."
-- "Encryption-first initiative."
-- "Roadmap includes sovereign infrastructure."
-- "Leter does not currently operate mailbox storage directly."
+- "Private domain infrastructure."
+- "Discretionary alias management."
+- "leter.net does not currently operate mailbox storage directly."
 
 Do not use language like:
 
@@ -93,12 +92,11 @@ Homepage sections:
 
 1. Hero
 2. Origin story
-3. Current state
+3. Domain Status
 4. Security posture (includes WKD entry)
-5. Initiative scope
+5. Infrastructure purpose
 6. Principles
-7. Planned evolution
-8. Footer with legal links and provider disclosure
+7. Footer with legal links and provider disclosure
 
 Legal & utility pages:
 
@@ -150,8 +148,6 @@ leter.net/
       ├─ SecurityPosture.astro
       ├─ InitiativeScope.astro
       ├─ Principles.astro
-      ├─ Roadmap.astro
-      ├─ EarlyAccess.astro
       └─ SiteFooter.astro
 ```
 
