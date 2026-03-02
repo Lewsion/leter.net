@@ -20,7 +20,7 @@
           rel="noreferrer"
         >
           Cloudflare DNS
-        </a>. Mail routing and mailbox service currently run through
+        </a>. Technical email routing and processing currently run through
         <a
           class="text-text underline decoration-accent/60 underline-offset-2"
           href="https://forwardemail.net"
@@ -39,17 +39,8 @@
           rel="noreferrer"
         >
           Forward Email documentation
-        </a>
-        and their
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://forwardemail.net/en/blog/docs/best-quantum-safe-encrypted-email-service"
-          target="_blank"
-          rel="noreferrer"
-        >
-          security notes
-        </a>, their service model includes encrypted mailbox storage and a zero-access architecture.
-        Leter relies on that provider for the current mailbox layer.
+        </a>, their infrastructure supports encrypted storage and zero-access architecture.
+        leter.net relies on that infrastructure for the current routing and transport layer.
       </p>
 
       <ul class="mt-5 grid gap-3 text-sm text-muted md:grid-cols-2">
@@ -62,7 +53,7 @@
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc6376">RFC 6376</a>)
         </li>
         <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
-          <span class="text-text">DMARC</span> policy and reporting (aggregate and forensic/failure reporting)
+          <span class="text-text">DMARC</span> policy and reporting
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc7489">RFC 7489</a>)
         </li>
         <li class="rounded-lg border border-white/10 bg-surface px-4 py-3">
@@ -70,45 +61,40 @@
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8461">RFC 8461</a>)
         </li>
         <li class="rounded-lg border border-white/10 bg-surface px-4 py-3 md:col-span-2">
-          <span class="text-text">SMTP TLS Reporting (TLS-RPT)</span> for TLS visibility and incident
-          diagnostics
+          <span class="text-text">SMTP TLS Reporting (TLS-RPT)</span> for transport visibility
           (<a class="underline underline-offset-2 hover:text-text" href="https://www.rfc-editor.org/info/rfc8460">RFC 8460</a>)
         </li>
       </ul>
 
       <!-- WKD Delegation Explained -->
       <div class="mt-5 rounded-xl border border-green/20 bg-green/5 p-5">
-        <h3 class="font-semibold text-text">Web Key Directory (WKD) Delegation</h3>
+        <h3 class="font-semibold text-text">Web Key Directory (WKD) Discovery</h3>
         <p class="mt-2 text-sm text-muted">
-          Leter.net is currently delegating OpenPGP public key discovery to the global
+          leter.net implements standard OpenPGP public key discovery via delegation to the global
           <a class="text-green underline underline-offset-2 hover:text-green/80 transition-colors" href="https://keys.openpgp.org" target="_blank" rel="noreferrer">keys.openpgp.org</a> directory.
-          This is achieved via a <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">CNAME</code> DNS record pointing <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">openpgpkey.leter.net</code> to <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">wkd.keys.openpgp.org</code>.
+          This is achieved via a <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">CNAME</code> record pointing <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">openpgpkey.leter.net</code> to <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">wkd.keys.openpgp.org</code>.
         </p>
         <p class="mt-3 text-sm text-muted">
-          <span class="font-medium text-text">Why we are doing this:</span> While Leter operates on a zero-knowledge architecture, true end-to-end encryption (E2EE) requires sender-side encryption. We are currently developing a sophisticated, automated internal WKD system to seamlessly push keys directly to our sovereign infrastructure. Until that system is officially published, delegating to the open standard public directory ensures external senders (using Thunderbid, Proton, etc.) can still easily and automatically fetch our users' keys.
+          Delegating to the open standard public directory ensures external senders using PGP-ready
+          clients (such as Thunderbird or Proton) can automatically fetch public keys for
+          <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">@leter.net</code> aliases.
         </p>
-        <p class="mt-3 text-sm text-muted">
-          <span class="font-medium text-text">Managing your keys:</span> Domain users must manually generate and upload their OpenPGP public key to <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">keys.openpgp.org</code>. The service will verify your <code class="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-xs text-green">@leter.net</code> email address before making the key discoverable. You can delete or manage your published key at any time using their management portal.
+      </div>
+
+      <div class="mt-5 rounded-xl border border-white/10 bg-white/5 p-5">
+        <p class="text-sm text-muted">
+          <span class="font-medium text-text">Forensic Reporting:</span>
+          Lewsion Ltd. maintains proprietary forensic tooling for DMARC and MTA-STS analysis to
+          ensure domain-level integrity and reporting transparency. These tools are internal and
+          not offered as a hosted product.
         </p>
       </div>
 
       <p class="mt-5 text-sm text-muted">
-        DMARC aggregate and forensic/failure reporting endpoints are operated on
-        <a
-          class="text-text underline decoration-accent/60 underline-offset-2"
-          href="https://lewsion.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Lewsion
-        </a>-managed infrastructure. Forensic feeds are routed to a proprietary internal analysis
-        system for detailed incident diagnostics.
-      </p>
-
-      <p class="mt-5 text-sm text-muted">
-        These controls are configured to support high-trust communication review by banks, legal
-        teams, and institutional recipients. They improve authentication and transport security, but
-        they do not mean mailbox-level end-to-end encryption is currently operated by Leter.
+        These controls are configured to support technical review and transport integrity. They
+        improve authentication and transport security for the domain, but they do not imply a hosted
+        mailbox infrastructure or hosted mailbox storage operated by leter.net. No commercial
+        email services are provisioned through this domain.
       </p>
     </div>
   </div>
